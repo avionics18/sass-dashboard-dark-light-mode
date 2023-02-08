@@ -1,11 +1,103 @@
+@use 'sass:math';
 @use '../util' as *;
 
-.toggle {
+$toggleBtn_width: rem(18);
+$toggleBtn_height: rem(18);
+$toggleBtn_offset: rem(3);
 
-	&__button {
-		width: rem(16);
-		height: rem(16);
-		border-radius: 50%;
-		background-color: var(--toggle);
+$debug_toggle: false;
+
+.toggle {
+	display: grid;
+	grid-template-columns: 1fr rem(70) 1fr;
+	gap: rem(8) rem(10);
+	border: none;
+
+	label {
+		font-size: rem(14);
+
+		&[for="dark"] {
+			grid-column: 1 / 2;
+			justify-self: end;
+			align-self: center;
+		}
+		&[for="system"] {
+			grid-column: 1 / 4;
+			grid-row: 2 / 3;
+			justify-self: center;
+			align-self: start;
+		}
+		&[for="light"] {
+			grid-column: 3 / 4;
+			align-self: center;
+		}
+	}
+
+	&__wrapper {
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;
+		height: rem(24);
+		position: relative;
+		padding: 0 $toggleBtn_offset;
+
+		input[type="radio"] {
+			@if $debug_toggle {
+				opacity: 1;
+			} @else {
+				opacity: 0;
+			}
+			margin-left: 0;
+			margin-right: 0;
+			height: $toggleBtn_width;
+			width: $toggleBtn_width;
+			cursor: pointer;
+
+			&:focus ~ .toggle__button {
+				outline: 2px solid var(--dark-text2);
+			}
+		}
+
+
+		.toggle__background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(225deg, var(--toggle-bg-end), var(--toggle-bg-start));
+			border-radius: rem(12);
+			overflow: hidden;
+			pointer-events: none;
+
+			@if $debug_toggle {
+				opacity: 0.15;
+			} @else {
+				opacity: 1;
+			}
+		}
+
+		.toggle__button {
+			position: absolute;
+			top: $toggleBtn_offset;
+			left: $toggleBtn_offset;
+			z-index: 1;
+			display: block;
+			width: $toggleBtn_width;
+			height: $toggleBtn_height;
+			border-radius: 50%;
+			background-color: var(--dark-bg);
+			pointer-events: none;
+			transition: all 0.25s;
+		}
+
+		#light:checked ~ .toggle__button {
+			left: calc(100% - $toggleBtn_width - $toggleBtn_offset);
+		}
+
+		#system:checked ~ .toggle__button {
+			left: calc(50% - math.div($toggleBtn_width, 2));
+		}
 	}
 }

@@ -1,0 +1,27 @@
+@use '../util' as *;
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: rem(36);
+
+	@include breakpoint(medium) {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__subtitle {
+		font-size: rem(14);
+		font-weight: 700;
+		color: var(--dark-text1);
+		margin: 0 0 20px 0;
+		text-align: center;
+
+		@include breakpoint(medium) {
+			text-align: initial;
+			margin: 0;
+		}
+	}
+}
