@@ -8,34 +8,16 @@ $toggleBtn_offset: rem(3);
 $debug_toggle: false;
 
 .toggle {
-	display: grid;
-	grid-template-columns: 1fr rem(70) 1fr;
-	gap: rem(8) rem(10);
 	border: none;
 
-	label {
+	& label {
+		color: var(--text-color1);
 		font-size: rem(14);
-
-		&[for="dark"] {
-			grid-column: 1 / 2;
-			justify-self: end;
-			align-self: center;
-		}
-		&[for="system"] {
-			grid-column: 1 / 4;
-			grid-row: 2 / 3;
-			justify-self: center;
-			align-self: start;
-		}
-		&[for="light"] {
-			grid-column: 3 / 4;
-			align-self: center;
-		}
+		font-weight: 700;
+		margin-right: rem(12);
 	}
 
 	&__wrapper {
-		grid-column: 2 / 3;
-		grid-row: 1 / 2;
 		height: rem(24);
 		position: relative;
 		padding: 0 $toggleBtn_offset;
@@ -53,7 +35,7 @@ $debug_toggle: false;
 			cursor: pointer;
 
 			&:focus ~ .toggle__button {
-				outline: rem(2) solid var(--dark-text2);
+				outline: rem(2) solid var(--text-color2);
 			}
 		}
 
@@ -87,7 +69,7 @@ $debug_toggle: false;
 			width: $toggleBtn_width;
 			height: $toggleBtn_height;
 			border-radius: 50%;
-			background-color: var(--dark-bg);
+			background-color: var(--bg-color);
 			pointer-events: none;
 			transition: all 0.25s;
 		}
@@ -95,9 +77,8 @@ $debug_toggle: false;
 		#light:checked ~ .toggle__button {
 			left: calc(100% - $toggleBtn_width - $toggleBtn_offset);
 		}
-
-		#system:checked ~ .toggle__button {
-			left: calc(50% - math.div($toggleBtn_width, 2));
+		#light:checked ~ .toggle__background {
+			background: var(--toggle);
 		}
 	}
 }

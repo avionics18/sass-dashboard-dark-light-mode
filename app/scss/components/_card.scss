@@ -1,13 +1,13 @@
 @use '../util' as *;
 
 .card {
-	background-color: var(--dark-card);
-	color: var(--dark-text1);
+	background-color: var(--card-bg);
+	color: var(--text-color1);
 	padding: rem(25);
 	transition: 0.25s all;
 
 	&:hover {
-		background-color: var(--dark-card-hover);
+		background-color: var(--card-bg-hover);
 	}
 
 	// Card Variants = Primary, Secondary
@@ -99,7 +99,7 @@
 
 	// Card Count
 	&__count {
-		color: var(--dark-text2);
+		color: var(--text-color2);
 		font-size: rem(56);
 		letter-spacing: rem(-2);
 		font-weight: 700;
@@ -115,7 +115,7 @@
 	&__label {
 		font-size: rem(12);
 		letter-spacing: rem(5);
-		color: var(--dark-text1);
+		color: var(--text-color1);
 		margin: 0 0 rem(16) 0;
 
 		&--secondary {
