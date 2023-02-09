@@ -5,3 +5,17 @@
 	padding: 0 rem(25);
 	margin: 0 auto;
 }
+
+.grid-4-col {
+	display: grid;
+	gap: rem(30) 0;
+
+	@include breakpoint(medium) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(30);
+	}
+	@include breakpoint(large) {
+		grid-template-columns: repeat(4, 1fr);
+		gap: rem(30);
+	}
+}

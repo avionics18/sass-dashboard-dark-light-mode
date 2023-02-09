@@ -53,7 +53,7 @@ $debug_toggle: false;
 			cursor: pointer;
 
 			&:focus ~ .toggle__button {
-				outline: 2px solid var(--dark-text2);
+				outline: rem(2) solid var(--dark-text2);
 			}
 		}
 

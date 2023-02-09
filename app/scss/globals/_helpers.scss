@@ -1,5 +1,40 @@
 @use '../util' as *;
 
-.mb-46 {
-	margin-bottom: rem(46);
+// === Margin Helper Classes ===
+.mb-24 {
+	margin-bottom: rem(24);
+}
+.mb-48 {
+	margin-bottom: rem(48);
+}
+
+// === Flexbox Helper Classes ===
+.flex {
+	display: flex;
+}
+.items-start {
+	align-items: start;
+}
+.items-center {
+	align-items: center;
+}
+.items-end {
+	align-items: end;
+}
+.justify-between {
+	justify-content: space-between;
+}
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+// === Text Helper Classes ===
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
 }
